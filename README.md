@@ -1,5 +1,6 @@
 # casperJSを使ったブラウザ検証
-フォーム登録後に別ページに飛ぶ簡単なサイトをcasperJSでブラウザ操作・テストをする。
+フォーム登録後に別ページに飛ぶ簡単なサイトをcasperJSでブラウザ操作・テストをする。  
+対象サイトは[こちら](http://onuma:lab@design.team-lab.com/design/onuma/form-check/)
 
 ## ファイル構成
 /index.html - トップページ  
