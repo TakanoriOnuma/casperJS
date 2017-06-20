@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body {
+      background-color: #fff;
+    }
+    .invalid {
+      display: none;
+    }
+    form.check input:invalid + .error .invalid {
+      display: block;
+      color: red;
+    }
+  </style>
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+  <script>
+    window.onload = function() {
+      $('#button').click(function(event) {
+        event.preventDefault();
+
+        $('#form').addClass('check');
+
+        if ($('input:invalid').length === 0) {
+          location.href = './success.html';
+        }
+      });
+    }
+  </script>
+  <title>Form</title>
+</head>
+<body>
+  <h1>フォーム入力チェック</h1>
+  <form id="form" action="">
+    <div>
+      <p class="req">氏名</p>
+      <input id="name" type="text" placeholder="氏名" name="name" required autofocus />
+      <p class="error">
+        <span class="invalid">(!) 名前を入力して下さい</span>
+      </p>
+    </div>
+    <div>
+      <p class="req">メールアドレス</p>
+      <input id="email" type="email" placeholder="メールアドレス" name="email"
+             pattern="[\w\d_-]+@[\w\d_-]+\.[\w\d._-]+" required />
+      <p class="error">
+        <span class="invalid">(!) 正しいメールアドレスの形式で入力して下さい</span>
+      </p>
+    </div>
+    <div>
+      <p>電話番号</p>
+      <input id="tel" type="tel" placeholder="電話番号" name="tel"
+             pattern="^\d{11}$|^\d{3,4}-\d{3,4}-\d{4}$" required />
+      <p class="error">
+        <span class="invalid">(!) 正しい電話番号の形式で入力して下さい</span>
+      </p>
+    </div>
+    <div>
+    <button id="button" type="submit">送信する</button>
+  </form>
+</body>
+</html>
